@@ -1,17 +1,14 @@
-fn factorial(n: u32, depth: u32) -> u32 {
-
-    println!("iterasi {} : n = {}", depth, n);
-
-    if n == 0 {
-        return 1;
+fn hanoi(n: u32, from: char, to: char, aux: char) {
+    if n == 1 {
+        println!("Pindahkah cakram 1 dari {} ke {}", from, to);
     } else {
-        return n * factorial(n - 1, depth + 1);
+        hanoi(n - 1, from, aux, to);
+        println!("Pindahkan cakram {} dari {} ke {}", n, from, to);
+        hanoi(n - 1, aux, to, from);
     }
 }
 
 fn main() {
-    let n = 1;
-    let result = factorial(n, 1);
-
-    println!("Bilangan factorial dari {} adalah {}", n, result);
+    let n = 2;
+    hanoi(n, 'A', 'C', 'B');
 }
