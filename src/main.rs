@@ -1,16 +1,17 @@
-fn triangular_number(n: u32, depth: u32) -> u32 {
+fn factorial(n: u32, depth: u32) -> u32 {
+
     println!("iterasi {} : n = {}", depth, n);
 
-    if n == 1 {
+    if n == 0 {
         return 1;
     } else {
-        return n + triangular_number(n - 1, depth + 1);
+        return n * factorial(n - 1, depth + 1);
     }
 }
 
 fn main() {
-    let n = 8;
-    let result = triangular_number(n, 1);
+    let n = 1;
+    let result = factorial(n, 1);
 
-    println!("Bilangan segitiga ke-{} adalah {}", n, result);
+    println!("Bilangan factorial dari {} adalah {}", n, result);
 }
